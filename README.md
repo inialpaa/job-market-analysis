@@ -32,6 +32,6 @@
 ---
 
 ## 💻 The Project
-* 📄 **Dataset:** [Lihat di sini](https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries)
+* 💾 **Dataset:** [Lihat di sini](https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries)
 * 📄 **SQL Script:** [Lihat di sini](data_analysis_queries.sql)
 * 📊 **Dashboard:** On Process
