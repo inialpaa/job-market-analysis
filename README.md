@@ -1,4 +1,4 @@
-# Data Compensation Analysis: Global Market Trends
+# Job Market Analysis
 
 ## 📌 Business Understanding
 * **Tantangan:** Kompetisi memperebutkan talenta data semakin ketat secara global. Tim HR dan manajemen dituntut untuk menentukan anggaran kompensasi yang kompetitif tanpa membebani keuangan perusahaan.
