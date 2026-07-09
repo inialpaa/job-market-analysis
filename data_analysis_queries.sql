@@ -13,30 +13,28 @@ ALTER TABLE ds_salaries
 RENAME COLUMN Column1 TO id;
 
 -- 1. Profesi data apa yang paling dicari oleh perusahaan?
-WITH cte AS (
-	SELECT
-		work_year,
-		job_title,
-		COUNT(*) AS total_job
-	FROM ds_salaries ds 
-	GROUP BY 1, 2
-	ORDER BY work_year DESC, total_job DESC
-),
-ranking_job AS (
-	SELECT
-		work_year,
-		job_title,
-		total_job,
-		ROW_NUMBER()  OVER(PARTITION BY work_year ORDER BY total_job DESC) AS ranking
-	FROM cte 
+WITH top_jobs AS (
+    SELECT
+        job_title,
+        COUNT(*) AS total_jobs
+    FROM ds_salaries
+    GROUP BY job_title
+    ORDER BY total_jobs DESC
+    LIMIT 5
 )
 SELECT
-	work_year,
-	job_title,
-	total_job
-FROM ranking_job
-WHERE ranking <= 5
-ORDER BY work_year, total_job DESC;
+    ds.work_year,
+	ds.job_title,
+    COUNT(*) AS total_job
+FROM ds_salaries ds
+INNER JOIN top_jobs tj
+    ON ds.job_title = tj.job_title
+GROUP BY
+    ds.work_year,
+    ds.job_title
+ORDER BY
+    ds.work_year,
+    total_job DESC;
 
 -- 2. Berapa gaji rata-rata data analyst
 SELECT
