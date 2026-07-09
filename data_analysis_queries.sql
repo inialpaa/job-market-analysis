@@ -84,6 +84,7 @@ SELECT
     END AS experience_level,
 	ROUND(AVG(salary_in_usd)) AS avg_salary
 FROM ds_salaries ds 
+WHERE job_title = 'Data Analyst'
 GROUP BY 1
 ORDER BY experience_level;
 
@@ -98,5 +99,6 @@ SELECT
     ROUND(AVG(remote_ratio), 1) AS avg_remote_percentage,
     COUNT(*) AS total_employee
 FROM ds_salaries
+WHERE job_title = 'Data Analyst'
 GROUP BY 1
 ORDER BY company_scale;
